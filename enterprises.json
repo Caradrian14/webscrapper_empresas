@@ -4,11 +4,55 @@
         "url": "https://wellfound.com/company/xceed/jobs"
     },
     {
-        "nombre": "Empresa B",
-        "url": "https://www.empresaB.com/empleos"
+        "nombre": "Wuolah",
+        "url": "https://wuolah.notion.site/Posiciones-abiertas-fbabecec44474f099d2f6f09d38d1282"
+    },
+ {
+        "Empresa": "Xceed",
+        "URL": "https://wellfound.com/company/xceed/jobs"
     },
     {
-        "nombre": "Empresa C",
-        "url": "https://www.empresaC.com/empleos"
+        "Empresa": "Wuolah",
+        "URL": "https://wuolah.notion.site/Posiciones-abiertas-fbabecec44474f099d2f6f09d38d1282"
+    },
+    {
+        "Empresa": "Remote",
+        "URL": "https://job-boards.greenhouse.io/remotecom"
+    },
+    {
+        "Empresa": "Leadtech",
+        "URL": "https://leadtech.com/work-with-us"
+    },
+    {
+        "Empresa": "Jobfluent",
+        "URL": "https://www.jobfluent.com/es/empleos-remoto"
+    },
+    {
+        "Empresa": "Remote First",
+        "URL": "https://remotefirst.digital/empresas/ofrecen-contrato-espana"
+    },
+    {
+        "Empresa": "joopy",
+        "URL": "https://www.joppy.me/companies?workPreferences=remoteOnly"
+    },
+    {
+        "Empresa": "hays",
+        "URL": "https://www.hays.es/busqueda-empleo/backend-empleos?q=Backend&location=&sp"
+    },
+    {
+        "Empresa": "PrimeIT",
+        "URL": "https://www.primeit.es/empleo#start-careers"
+    },
+    {
+        "Empresa": "Plexus",
+        "URL": "https://www.plexus.es/unete-al-equipo/"
+    },
+    {
+        "Empresa": "ust",
+        "URL": "https://usource.ripplehire.com/candidate/?token=xHQWoFn4C242POo7xMpH&"
+    },
+    {
+        "Empresa": "Knowmad Mood",
+        "URL": "https://be.knowmadmood.com"
     }
 ]
