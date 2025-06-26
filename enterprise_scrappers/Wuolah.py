@@ -5,14 +5,13 @@ def scrape_job_listings(url):
         browser = p.chromium.launch(headless=False)
         page = browser.new_page()
         page.goto(url)
-
+        page.wait_for_load_state()
         # Ajusta los selectores según la página
-        page.wait_for_selector('.job-listing')
-        job_listings = page.query_selector_all('.job-listing')
+        job_listings = page.query_selector_all('.notion-page-block')
 
         for job in job_listings:
-            title = job.query_selector('.job-title').inner_text()
-            company = job.query_selector('.company-name').inner_text()
-            print(f'Title: {title}, Company: {company}')
+            # si en el titulo existen una serie de palabras clave, que se muestre
+            title = job.inner_text()
+            print(f'Title: {title}')
 
         browser.close()
