@@ -1,8 +1,7 @@
 from playwright.sync_api import sync_playwright
 from datetime import datetime
-
+from .constantes import programming_keywords
 def scrape_job_listings(empresa, url):
-    programming_keywords = ['java', 'php', 'python', 'javascript', 'c++', 'c#', 'ruby', 'swift', 'go', 'rust', 'backend', 'frontend', 'symfony', 'laravel', 'react', 'angular', 'springboot', 'spring']
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
         page = browser.new_page()
