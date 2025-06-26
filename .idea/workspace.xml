@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fdcf153-af67-418d-b7ed-faafc911bbb3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/enterprise_scrappers/constantes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enterprise_scrappers/LeadTech.py" beforeDir="false" afterPath="$PROJECT_DIR$/enterprise_scrappers/LeadTech.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enterprise_scrappers/Wuolah.py" beforeDir="false" afterPath="$PROJECT_DIR$/enterprise_scrappers/Wuolah.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enterprise_scrappers/Leadtech.py" beforeDir="false" afterPath="$PROJECT_DIR$/enterprise_scrappers/Leadtech.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +36,8 @@
   "keyToString": {
     "Python tests.Python tests in test.py.executor": "Run",
     "Python tests.Python tests in test_example.py.executor": "Run",
+    "Python.LeadTech.executor": "Debug",
+    "Python.Leadtech.executor": "Debug",
     "Python.Wuolah.executor": "Debug",
     "Python.Xceed.executor": "Debug",
     "Python.main.executor": "Debug",
@@ -69,9 +68,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/enterprise_scrappers/LeadTech.py</url>
+          <url>file://$PROJECT_DIR$/enterprise_scrappers/Leadtech.py</url>
           <line>13</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/enterprise_scrappers/Leadtech.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/enterprise_scrappers/Leadtech.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
