@@ -8,7 +8,7 @@ def main():
     for empresa in empresas:
         if empresa['Empresa'] == "Wuolah":
             print(f"Realizando scraping para {empresa['Empresa']}...")
-            Wuolah.scrape_job_listings(empresa['URL'])
+            Wuolah.scrape_job_listings(empresa['Empresa'], empresa['URL'])
 
 
 if __name__ == "__main__":
