@@ -14,7 +14,17 @@ def scrape_job_listings(empresa, url):
             #h3_elements = page.query_selector_all('h2:-text("IT") + ul > li > h3 > a')
             #page.get_by_text("Backend").click()
             for h3 in h3_elements.element_handles():
-                text = h3.inner_text()
+                text = h3.inner_text().lower()
                 print(f'Texto de h3: {text}')
+                if any(keyword in text for keyword in programming_keywords):
+                    with open('README.md', 'a', encoding='utf-8') as file:
+                        # Obtener la fecha actual
+                        fecha_actual = datetime.now().strftime("%Y-%m-%d")
+
+                        # Escribir en el archivo README.md
+                        file.write(f"## {fecha_actual}\n")
+                        file.write(f"- Empresa: {empresa}\n")
+                        file.write(f"- Enlace: {url}\n")
+                        file.write(f"- Puesto: {text}\n\n")
 
         browser.close()
