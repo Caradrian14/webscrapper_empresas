@@ -1,6 +1,6 @@
 import json
 from enterprise_scrappers import Wuolah
-from enterprise_scrappers import Leadtech
+from enterprise_scrappers import PrimeIT
 
 def main():
     with open('enterprises.json', 'r', encoding='utf-8') as file:
@@ -9,7 +9,7 @@ def main():
     for empresa in empresas:
         if empresa['Empresa'] == "PrimeIT":
             print(f"Realizando scraping para {empresa['Empresa']}...")
-            Leadtech.scrape_job_listings(empresa['Empresa'], empresa['URL'])
+            PrimeIT.scrape_job_listings(empresa['Empresa'], empresa['URL'])
 
 
 if __name__ == "__main__":
