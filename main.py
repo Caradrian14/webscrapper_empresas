@@ -7,7 +7,7 @@ def main():
         empresas = json.load(file)
 
     for empresa in empresas:
-        if empresa['Empresa'] == "Leadtech":
+        if empresa['Empresa'] == "PrimeIT":
             print(f"Realizando scraping para {empresa['Empresa']}...")
             Leadtech.scrape_job_listings(empresa['Empresa'], empresa['URL'])
 
