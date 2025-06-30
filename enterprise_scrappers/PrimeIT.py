@@ -8,24 +8,30 @@ def scrape_job_listings(empresa, url):
         page.goto(url)
         page.wait_for_load_state()
 
-        filter_div = page.query_selector('.filters-header')
-        filter_div.click()
+# class 'jobs-list-content'
+        articles = page.query_selector_all('.jobs-list-content article')
+        # Iterar sobre cada artículo
+        for article in articles:
+            # Extraer el texto del h4
+            h4 = article.query_selector('header.header-entrie div h4')
+            # Extraer el texto del ul, ignorando el svg
+            ul = article.query_selector('header.header-entrie div ul')
+            if ul and h4:
+                h4_text = h4.inner_text()
+                if any(keyword in h4_text for keyword in programming_keywords):
+                    print(f'Título del Trabajo: {h4_text}')
+                    # Obtener todos los elementos li dentro del ul
+                    li_elements = ul.query_selector_all('li')
+                    with open('README.md', 'a', encoding='utf-8') as file:
+                        for li in li_elements:
+                            li_text = li.inner_text()
+                            print(f'Texto adicional: {li_text}')
+                            # Obtener la fecha actual
+                            fecha_actual = datetime.now().strftime("%Y-%m-%d")
 
-        # Esperar a que el checkbox esté visible y luego hacer clic en él
-        #page.wait_for_selector('.filter-checkbox', state='visible'
-        #h3_elements = page.locator(
-        #    '//div[contains(@class, "filters-content")]//ul//li[contains(@data, "whr-title")]/a')
-        checkbox = page.locator('//div[contains(@class, "filters-content")]//ul//li[contains(@data-location, "remote")]/a')
-        #checkbox.click()
-        print(checkbox.inner_text())
-        # Esperar a que se complete la solicitud AJAX y se actualice la página
-        # Aquí puedes esperar a que un elemento específico esté presente o visible
-        page.wait_for_selector('.ajax-result', state='visible')
-
-        # Continuar con más interacciones o extracciones de datos
-        # Por ejemplo, extraer los resultados filtrados
-        results = page.query_selector_all('.ajax-result')
-        for result in results:
-            print(result.inner_text())
-
+                            # Escribir en el archivo README.md
+                            file.write(f"## {fecha_actual}\n")
+                            file.write(f"- Empresa: {empresa}\n")
+                            file.write(f"- Enlace: {url}\n")
+                            file.write(f"- Puesto: {h4_text}-li_text\n\n")
         browser.close()
