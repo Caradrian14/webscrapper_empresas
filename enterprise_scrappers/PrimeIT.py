@@ -23,15 +23,14 @@ def scrape_job_listings(empresa, url):
                     # Obtener todos los elementos li dentro del ul
                     li_elements = ul.query_selector_all('li')
                     with open('README.md', 'a', encoding='utf-8') as file:
+                        # Obtener la fecha actual
+                        fecha_actual = datetime.now().strftime("%Y-%m-%d")
+                        file.write(f"## {fecha_actual}\n")
+                        file.write(f"- Empresa: {empresa}\n")
+                        file.write(f"- Enlace: {url}\n")
+                        li_text = ''
                         for li in li_elements:
-                            li_text = li.inner_text()
-                            print(f'Texto adicional: {li_text}')
-                            # Obtener la fecha actual
-                            fecha_actual = datetime.now().strftime("%Y-%m-%d")
-
-                            # Escribir en el archivo README.md
-                            file.write(f"## {fecha_actual}\n")
-                            file.write(f"- Empresa: {empresa}\n")
-                            file.write(f"- Enlace: {url}\n")
-                            file.write(f"- Puesto: {h4_text}-li_text\n\n")
+                            li_text += li.inner_text() + " "
+                        # Escribir en el archivo README.md
+                        file.write(f"- Puesto: {h4_text}-{li_text}\n\n")
         browser.close()
