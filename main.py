@@ -1,6 +1,6 @@
 import json
 from enterprise_scrappers import Wuolah
-from enterprise_scrappers import PrimeIT
+from enterprise_scrappers import Plexus
 
 def main():
     with open('enterprises.json', 'r', encoding='utf-8') as file:
@@ -9,7 +9,7 @@ def main():
     for empresa in empresas:
         if empresa['Empresa'] == "Plexus":
             print(f"Realizando scraping para {empresa['Empresa']}...")
-            PrimeIT.scrape_job_listings(empresa['Empresa'], empresa['URL'])
+            Plexus.scrape_job_listings(empresa['Empresa'], empresa['URL'])
 
 
 if __name__ == "__main__":

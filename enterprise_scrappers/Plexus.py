@@ -9,28 +9,14 @@ def scrape_job_listings(empresa, url):
         page.wait_for_load_state()
 
 # class 'jobs-list-content'
-        articles = page.query_selector_all('.jobs-list-content article')
+        ul_tag = page.query_selector('ul.fusion-grid.fusion-grid-3.fusion-flex-align-items-stretch')
         # Iterar sobre cada artículo
-        for article in articles:
-            # Extraer el texto del h4
-            h4 = article.query_selector('header.header-entrie div h4')
-            # Extraer el texto del ul, ignorando el svg
-            ul = article.query_selector('header.header-entrie div ul')
-            if ul and h4:
-                h4_text = h4.inner_text()
-                if any(keyword in h4_text for keyword in programming_keywords):
-                    print(f'Título del Trabajo: {h4_text}')
-                    # Obtener todos los elementos li dentro del ul
-                    li_elements = ul.query_selector_all('li')
-                    with open('README.md', 'a', encoding='utf-8') as file:
-                        # Obtener la fecha actual
-                        fecha_actual = datetime.now().strftime("%Y-%m-%d")
-                        file.write(f"## {fecha_actual}\n")
-                        file.write(f"- Empresa: {empresa}\n")
-                        file.write(f"- Enlace: {url}\n")
-                        li_text = ''
-                        for li in li_elements:
-                            li_text += li.inner_text() + " "
-                        # Escribir en el archivo README.md
-                        file.write(f"- Puesto: {h4_text}-{li_text}\n\n")
+        if ul_tag:
+            # Acceder a los elementos li dentro del ul
+            li_elements = ul_tag.query_selector_all('li')
+            # Iterar sobre los elementos li y extraer la información deseada
+            for li in li_elements:
+                # Aquí puedes extraer el texto o cualquier otra información que necesites
+                div_title = li.inner_text()
+                print(f'Texto del li: {div_title}')
         browser.close()
