@@ -1,6 +1,8 @@
 from playwright.sync_api import sync_playwright
 from datetime import datetime
 from .constantes import programming_keywords
+import re
+
 def scrape_job_listings(empresa, url):
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
@@ -18,5 +20,17 @@ def scrape_job_listings(empresa, url):
             for li in li_elements:
                 # Aquí puedes extraer el texto o cualquier otra información que necesites
                 div_title = li.inner_text()
+                if any(keyword in div_title for keyword in programming_keywords):
+                    with open('README.md', 'a', encoding='utf-8') as file:
+                        # Obtener la fecha actual
+                        fecha_actual = datetime.now().strftime("%Y-%m-%d")
+                        file.write(f"## {fecha_actual}\n")
+                        file.write(f"- Empresa: {empresa}\n")
+                        file.write(f"- Enlace: {url}\n")
+
+                        # Eliminar "Ver Oferta" del texto
+                        li_text = re.sub(r'\s*Ver Oferta\s*', '', div_title)
+                        # Escribir en el archivo README.md
+                        file.write(f"- Puesto: {div_title}\n\n")
                 print(f'Texto del li: {div_title}')
         browser.close()
