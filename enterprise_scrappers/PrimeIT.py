@@ -1,6 +1,6 @@
 from playwright.sync_api import sync_playwright
 from datetime import datetime
-from .constantes import programming_keywords
+from .constantes import programming_keywords, file_list
 def scrape_job_listings(empresa, url):
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
@@ -22,7 +22,7 @@ def scrape_job_listings(empresa, url):
                     print(f'Título del Trabajo: {h4_text}')
                     # Obtener todos los elementos li dentro del ul
                     li_elements = ul.query_selector_all('li')
-                    with open('README.md', 'a', encoding='utf-8') as file:
+                    with open(file_list, 'a', encoding='utf-8') as file:
                         # Obtener la fecha actual
                         fecha_actual = datetime.now().strftime("%Y-%m-%d")
                         file.write(f"## {fecha_actual}\n")

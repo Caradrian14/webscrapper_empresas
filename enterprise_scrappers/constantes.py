@@ -26,3 +26,5 @@ programming_keywords = [
     'html', 'css', 'json', 'xml', 'yaml', 'web development', 'mobile development',
     'game development', 'data analysis', 'cloud computing', 'networking'
 ]
+
+file_list = 'job_list.md'

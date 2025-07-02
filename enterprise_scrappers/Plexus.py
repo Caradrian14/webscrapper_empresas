@@ -1,6 +1,6 @@
 from playwright.sync_api import sync_playwright
 from datetime import datetime
-from .constantes import programming_keywords
+from .constantes import programming_keywords, file_list
 import re
 
 def scrape_job_listings(empresa, url):
@@ -21,7 +21,7 @@ def scrape_job_listings(empresa, url):
                 # Aquí puedes extraer el texto o cualquier otra información que necesites
                 div_title = li.inner_text()
                 if any(keyword in div_title for keyword in programming_keywords):
-                    with open('README.md', 'a', encoding='utf-8') as file:
+                    with open(file_list, 'a', encoding='utf-8') as file:
                         # Obtener la fecha actual
                         fecha_actual = datetime.now().strftime("%Y-%m-%d")
                         file.write(f"## {fecha_actual}\n")
